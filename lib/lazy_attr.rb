@@ -12,7 +12,7 @@ module LazyAttr
   end
 
   def lazy_attr_accessor(method_name, default_value)
-    attr_writer(method_name)
     lazy_attr_reader(method_name, default_value)
+    attr_writer(method_name)
   end
 end
