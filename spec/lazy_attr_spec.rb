@@ -48,6 +48,16 @@ describe LazyAttr do
       obj.foo
       obj.instance_variable_get("@foo").should == "foobar"
     end
+
+    it "should use the correct name for the accessor" do
+      klass = new_class do
+        lazy_attr_reader :bar, lambda { "foobar" }
+      end
+
+      obj = klass.new
+
+      obj.should respond_to(:bar)
+    end
   end
 
   describe "lazy_attr_accessor" do
@@ -69,6 +79,27 @@ describe LazyAttr do
 
       obj = klass.new
       obj.foo.should == "baz"
+    end
+
+    it "should setup a reader & writer with the correct names" do
+      klass = new_class do
+        lazy_attr_accessor :baz, lambda { "baz" }
+      end
+
+      obj = klass.new
+      obj.should respond_to(:baz)
+      obj.should respond_to(:baz=)
+    end
+
+    it "should use the default value given" do
+      an_object = mock 'an object'
+
+      klass = new_class do
+        lazy_attr_accessor :baz, lambda { an_object }
+      end
+
+      obj = klass.new
+      obj.baz.should equal(an_object)
     end
   end
 end
