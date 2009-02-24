@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{lazy_attr}
-  s.version = "1.0.0"
+  s.version = "1.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Scott Taylor"]
-  s.date = %q{2009-02-23}
+  s.date = %q{2009-02-24}
   s.description = %q{TODO}
   s.email = %q{scott@railsnewbie.com}
   s.files = ["README.markdown", "VERSION.yml", "lib/lazy_attr.rb", "spec/lazy_attr", "spec/lazy_attr_spec.rb", "spec/spec.opts", "spec/spec_helper.rb"]
